@@ -1,0 +1,23 @@
+{% autoescape false %}
+{% set provenance = soustitre_2 %}
+{% set raw_title = titre|render|raw|striptags|replace({'&amp;': '&'})|trim %}
+{% if raw_title|length > 22 %}
+  {% set title_classes = "concert-artist-long-title concert-artist-title" %}
+{% else %}
+  {% set title_classes = "concert-artist-title" %}
+{% endif %}
+<div class="contrechamp-round">
+{{content_image}}
+</div>
+<div class="text-center">
+  <div class="{{title_classes}}" title="{{raw_title|upper}}">{{raw_title|upper}}</div>
+  <div class="bold-font concert-artist-subtitle fs-5"> {{soustitre_1|render|striptags|upper}}</div>
+  <!-- <div class="fs-4 text-primary"> {{provenance|render|striptags}} </div> -->
+  <div class="my-4 d-flex justify-content-center"> 
+    {% include "@contrechamp/includes/artistlinks.html.twig"%} 
+  </div>
+</div>
+<div class="text-ivory text-justify">
+  {{texte_1}}
+</div>
+{% endautoescape %}

@@ -1,0 +1,20 @@
+name: 'contrechamp'
+type: theme
+description: 'contrechamp based on Bootstrap 5 theme.'
+core_version_requirement: '^9.4 || ^10'
+'base theme': bootstrap5
+libraries:
+  - contrechamp/global-styling
+ckeditor_stylesheets:
+  - css/style.css
+ckeditor5-stylesheets:
+  - css/ck5style.css
+regions:
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  content: 'Main content'
+  content_footer: 'Main content footer'
+  footer: Footer
+libraries-override:
+  bootstrap5/global-styling: false

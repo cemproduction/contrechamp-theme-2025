@@ -1,0 +1,9 @@
+{% set photo = cardbody %}
+
+
+
+<div class="fs-4 high-tide team-member-name w-25">{{title}}</div> 
+{{photo}}
+{% autoescape false %}
+<div class="bold-font team-member-position text-end"> {{subtitle_2|render|striptags|upper}}</div>
+{% endautoescape %}

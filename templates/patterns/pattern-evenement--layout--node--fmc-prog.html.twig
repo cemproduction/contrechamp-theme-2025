@@ -1,0 +1,7 @@
+{% if (texte_3|render is not empty) %}
+  NODE ID : {{node.id}}
+  {{ drupal_view('sous_evenements', 'block_1', node.id) }}
+
+{% else %}
+  sans sous-veent
+{% endif %}

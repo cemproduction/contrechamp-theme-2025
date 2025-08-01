@@ -1,0 +1,11 @@
+{% set provenance = soustitre_2 %}
+  {% set raw_title = titre|render|raw|striptags|trim %}
+<div class="img-zoom"> 
+    {{content_image}}
+  </div> 
+  <div class="">
+    
+    <h3 class="concert-card-artist-title pt-2">{{titre|render|striptags|replace({'&amp;': '&', '&#039;':"'"})|upper}}</h3> 
+    <div class="concert-card-subtitle fs-5 fix-baseline">{{soustitre_1|render|striptags|replace({'&amp;': '&', '&#039;':"'"})|upper}}</div>
+    <div class="concert-card-artist-location pt-1 bold-font">{{provenance|render|striptags|upper}} </div>
+  </div>

@@ -1,0 +1,142 @@
+{% autoescape false %}
+{% set date = date|render|striptags|trim %}
+{% set mention = titre_texte_2 %}
+{% set dateNo = date|date('j') %}
+{% set mois = date|date('F')|t|upper %}
+{% set day = date|date('l')|t|upper %}
+{% set hour = date|date("H:i")|replace({':':'H'}) %}
+{% set sousevenements = texte_3|render|striptags|trim is not empty %}
+{% set multidate = date_fin|render|striptags|trim is not empty %}
+{% if multidate %}
+  {% set end_date = date_fin|render|striptags|trim %}
+  {% set end_date_dateNo = end_date|date('j') %}
+  {% set end_date_mois = end_date|date('F')|t|upper %}
+  {% set end_date_day = end_date|date('l')|t %}
+  {% set end_date_hour = end_date|date("H:i")|replace({':':'H'}) %}
+{% endif %}
+
+
+
+{% set logo_mention = texte_2 %}
+{% if sousevenements %}
+  {% set container_classes = "concert-container container pt-4" %}
+  {% set date_col_classes = [
+    'col-12',
+    'col-lg-4',
+    'order-lg-1',
+    'text-center'
+  ]%}
+{% else %}
+  {% set container_classes = "concert-single-container container pt-4" %}
+  {% set date_col_classes = [
+    'col-12',
+    'col-lg-6',
+    'd-flex',
+    'flex-column',
+    'justify-content-between',
+    'order-lg-1',
+    'ps-lg-5',
+    'text-center',
+    'text-lg-end'
+  ]%}
+{% endif %} 
+
+<div class="{{container_classes}}">
+  {% if sousevenements %}
+    <div class="text-center">
+      <h1 class="main-title text-light">{{day}} {{dateNo}} {{mois}}</h1>
+      <h3 class="concert-venue">{{place|render|striptags|replace({'&#039;':"'"})|upper}}</h3>
+      <h4 class="concert-time">{{hour}}</h4>
+   </div>
+    <div class="col-12 col-lg-12 order-lg-1 pt-3">  
+      <div class="text-center">
+          {% set btn_class = "btn btn-primary align-items-center" %} 
+          {% if not multidate %}
+            <a href="https://my.weezevent.com/festival-des-musiques-de-creation-2024" target="_blank" class="{{btn_class}}">BILLETTERIE</a> 
+          {% elseif multidate %}
+            <a href="#" target="_blank" class="{{btn_class}}">ÉVÉNEMENT GRATUIT!</a> 
+          {% endif %}
+          
+          </div>
+      </div>
+   <div class="gy-4 gy-lg-0 mt-lg-4 mt-2 row">
+    {{ drupal_view('sous_evenements', 'block_1', node.id) }}
+  </div>
+  <img src="/{{directory}}/img/fmc_cascade.047adbdb.svg" alt="Lettres FMC" width="350" class="fmc-cascade img-fluid mx-auto"> 
+{% else %}
+  {# EVENEMENT SIMPLE #}
+  {% set provenance = soustitre_2 %}
+    {% set raw_title = titre|render|raw|striptags %}
+    {% if raw_title|length > 18 %}
+      {% set title_classes = "concert-artist-long-title concert-artist-title" %}
+    {% else %}
+      {% set title_classes = "concert-artist-title" %}
+    {% endif %}
+  
+      
+      
+      {% if multidate %}
+        {% if end_date_mois == mois %}  
+          {% set date_string = "DU " ~ dateNo ~ " " ~ " AU " ~ end_date_dateNo ~ " " ~ end_date_mois|upper %}
+        {% else %}
+          {% set date_string = "DU " ~ dateNo ~ " " ~ mois|slice(0,3) ~ " AU " ~ end_date_dateNo ~ " " ~ end_date_mois|slice(0,3) %}
+        {% endif %}
+      {% else %}
+        {% set date_string = day ~ " " ~ dateNo ~ " " ~ mois %}
+      {% endif %}          
+
+      <h1 class="text-center text-light">{{date_string}}</h1>
+      <div class="align-items-center gy-3 justify-content-center mb-3 mt-2 row">
+         <div class="col-6 col-lg-4 order-lg-0">
+            <h3 class="concert-venue">{{place|render|striptags|replace({'&#039;':"'"})|upper}}</h3>
+            {% if not multidate %}
+            <h4 class="concert-time">{{hour}}</h4>
+            {% endif %}
+         </div>
+         <div class="col-6 col-lg-2 d-flex justify-content-end order-lg-2 offset-lg-2">
+          {% if (mention|render is not empty) %}
+            <div class="ms-auto">
+               <div class="concert-sponsor text-center"> {{mention|render|striptags|replace({'&amp;': '&'})|upper}} </div>
+               <div class="concert-sponsor-logo">{{logo_mention}} </div>
+            </div>
+          {% else %}
+            {#
+            <div class="ms-auto">
+              <div class="concert-sponsor-logo"><img src="/{{directory}}/img/logos/cem_logo.a06e5f0d.svg" class="img-fluid"></div>
+           </div>           
+          #}
+          {% endif %}
+         </div>
+         <div class="col-6 col-lg-4 order-lg-1">
+          
+            <div class="text-center">
+              {% set btn_class = "btn btn-primary align-items-center" %} 
+              {% if not multidate %}
+                <a href="https://my.weezevent.com/festival-des-musiques-de-creation-2024" target="_blank" class="{{btn_class}}">BILLETTERIE</a> 
+              {% elseif multidate %}
+                <a href="#" target="_blank" class="{{btn_class}}">ÉVÉNEMENT GRATUIT!</a> 
+              {% endif %}
+              
+              </div>
+         </div>
+      </div>
+      {{content_image}}
+      <div class="concert-single-title-container gy-3 gy-lg-0 row pb-4">
+         <div class="col-12 col-lg-9 order-lg-1 text-center text-lg-end">
+          <div class="{{title_classes}}" title="{{raw_title|upper}}">{{raw_title|upper}}</div>
+          <div class="bold-font concert-artist-subtitle fs-3"> {{soustitre_1|render|striptags|replace({'&amp;': '&'})|upper}}</div>
+         </div>
+         <div class="align-items-center align-items-lg-start col-12 col-lg-3 d-flex flex-column justify-content-between order-lg-0">
+            <div class="fs-4"> {{provenance}} </div>
+            <div class="my-3 d-flex justify-content-center">
+              {% include "@fmcthemebs5/includes/artistlinks.html.twig"%} 
+            </div>
+         </div>
+      </div>
+      <div class="text-ivory text-justify">
+        {{texte_1}}
+      </div>
+      <img src="/{{directory}}/img/fmc_cascade.047adbdb.svg" alt="Lettres FMC" width="550" class="fmc-cascade img-fluid mx-auto">
+{% endif %}
+</div>
+{% endautoescape %}
