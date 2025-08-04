@@ -1,7 +1,7 @@
 name: 'contrechamp'
 type: theme
 description: 'contrechamp based on Bootstrap 5 theme.'
-core_version_requirement: '^9.4 || ^10'
+core_version_requirement: '^9.4 || ^10 || ^11'
 'base theme': bootstrap5
 libraries:
   - contrechamp/global-styling
