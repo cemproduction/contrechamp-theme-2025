@@ -1,3 +1,5 @@
+{# PAGE DE L'ÉVÉNEMENT #}
+
 {% autoescape false %}
 {% set date = date|render|striptags|trim %}
 {% set mention = titre_texte_2 %}
@@ -66,24 +68,13 @@
 {% else %}
   {# EVENEMENT SIMPLE #}
   {% set provenance = soustitre_2 %}
-    {% set raw_title = titre|render|raw|striptags %}
-    {% if raw_title|length > 18 %}
-      {% set title_classes = "concert-artist-long-title concert-artist-title" %}
-    {% else %}
-      {% set title_classes = "concert-artist-title" %}
-    {% endif %}
-  
-      
-      
-      {% if multidate %}
-        {% if end_date_mois == mois %}  
-          {% set date_string = "DU " ~ dateNo ~ " " ~ " AU " ~ end_date_dateNo ~ " " ~ end_date_mois|upper %}
-        {% else %}
-          {% set date_string = "DU " ~ dateNo ~ " " ~ mois|slice(0,3) ~ " AU " ~ end_date_dateNo ~ " " ~ end_date_mois|slice(0,3) %}
-        {% endif %}
-      {% else %}
-        {% set date_string = day ~ " " ~ dateNo ~ " " ~ mois %}
-      {% endif %}          
+  {% set raw_title = titre|render|raw|striptags %}
+  {% if raw_title|length > 18 %}
+    {% set title_classes = "concert-artist-long-title concert-artist-title" %}
+  {% else %}
+    {% set title_classes = "concert-artist-title" %}
+  {% endif %}
+  {% set date_string = day ~ " " ~ dateNo ~ " " ~ mois %}        
 
       <h1 class="text-center text-light">{{date_string}}</h1>
       <div class="align-items-center gy-3 justify-content-center mb-3 mt-2 row">

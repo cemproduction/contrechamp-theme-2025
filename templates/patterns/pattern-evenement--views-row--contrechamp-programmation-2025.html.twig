@@ -1,3 +1,5 @@
+{# CHAQUE ÉVÉNEMENT DANS LA PROGRAMMATION #}
+
 {% set date = date|render|striptags|trim %}
 {% set mention = titre_texte_2 %}
 {% set dateNo = date|date('j') %}
@@ -14,25 +16,6 @@
   {% set end_date_hour = end_date|date("H:i")|replace({':':'H'}) %}
 {% endif %}
 
-
-{% if sousevenements %}
-  {% set date_col_classes = [
-    'col-12',
-    'col-lg-4',
-    'order-lg-3',
-    'text-lg-end'
-  ]%}
-{% else %}
-  {% set date_col_classes = [
-    'col-12',
-    'col-lg-4',
-    'order-lg-2',
-    'text-lg-end',
-    'd-flex',
-    'flex-column',
-    'justify-content-between'
-  ]%}
-{% endif %}
 
 {% if sousevenements %}
   {% set date_col_classes = [
@@ -55,24 +38,11 @@
 {% endif %}
 
 
-
-
 <div {{ attributes.addClass( date_col_classes) }}> 
   <div>
-    {% if not multidate %}
     <h2 class="concert-date text-center">{{day}} {{dateNo}}&nbsp;{{mois}}</h2> 
     <h3 class="concert-venue mt-3 text-center">{{place|render|striptags|replace({'&amp;': '&','&#039;':"'"})|upper}}</h3> 
     <h4 class="concert-time mt-1 text-center">{{hour|replace({':':'H'})}}</h4>
-    {% elseif multidate %}
-      {% if end_date_mois == mois %}  
-        {% set date_string = "DU " ~ dateNo ~ " " ~ " AU " ~ end_date_dateNo ~ " " ~ end_date_mois|upper %}
-      {% else %}
-        {% set date_string = "DU " ~ dateNo ~ " " ~ mois|slice(0,3) ~ " AU " ~ end_date_dateNo ~ " " ~ end_date_mois|slice(0,3) %}
-      {% endif %}
-    <h2 class="concert-date">{{date_string}}</h2> 
-    <h3 class="concert-venue mt-3">{{place|render|striptags|replace({'&amp;': '&','&#039;':"'"})|upper}}</h3> 
-    <h4 class="concert-time mt-1"></h4>
-    {% endif %}
   </div>
   <div class="text-center">
     <a class="btn btn-primary mt-4 stretched-link align-items-center" href="{{eventurl|raw|render|striptags|trim}}">EN SAVOIR PLUS</a> 
