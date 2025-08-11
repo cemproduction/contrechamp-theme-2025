@@ -41,12 +41,13 @@
 <div {{ attributes.addClass( date_col_classes) }}> 
   <div>
     <h2 class="concert-date text-center">{{day}} {{dateNo}}&nbsp;{{mois}}</h2> 
-    <h3 class="concert-venue mt-3 text-center">{{place|render|striptags|replace({'&amp;': '&','&#039;':"'"})|upper}}</h3> 
+    <div class="text-center">
+      <a class="btn btn-primary my-3 stretched-link align-items-center" href="{{eventurl|raw|render|striptags|trim}}"><span class="align-middle">INFORMATIONS</span></a> 
+    </div>
+    <h3 class="concert-venue text-center">{{place|render|striptags|replace({'&amp;': '&','&#039;':"'"})|upper}}</h3> 
     <h4 class="concert-time mt-1 text-center">{{hour|replace({':':'H'})}}</h4>
   </div>
-  <div class="text-center">
-    <a class="btn btn-primary mt-4 stretched-link align-items-center" href="{{eventurl|raw|render|striptags|trim}}">EN SAVOIR PLUS</a> 
-  </div>
+
 </div>
 
 {% if (sousevenements) %}

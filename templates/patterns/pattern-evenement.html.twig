@@ -21,7 +21,7 @@
 
 {% set logo_mention = texte_2 %}
 {% if sousevenements %}
-  {% set container_classes = "concert-container container pt-4" %}
+  {% set container_classes = "concert-container container pt-4 pb-4" %}
   {% set date_col_classes = [
     'col-12',
     'col-lg-4',
@@ -29,7 +29,7 @@
     'text-center'
   ]%}
 {% else %}
-  {% set container_classes = "concert-single-container container pt-4" %}
+  {% set container_classes = "concert-single-container container pt-3 pb-4" %}
   {% set date_col_classes = [
     'col-12',
     'col-lg-6',
@@ -54,17 +54,20 @@
       <div class="text-center">
           {% set btn_class = "btn btn-primary align-items-center" %} 
           {% if not multidate %}
-            <a href="https://my.weezevent.com/festival-des-musiques-de-creation-2024" target="_blank" class="{{btn_class}}">BILLETTERIE</a> 
+            <a href="https://my.weezevent.com/festival-des-musiques-de-creation-2024" target="_blank" class="{{btn_class}}"><span class="align-middle">BILLETTERIE</span></a> 
           {% elseif multidate %}
             <a href="#" target="_blank" class="{{btn_class}}">ÉVÉNEMENT GRATUIT!</a> 
           {% endif %}
           
           </div>
       </div>
-   <div class="gy-4 gy-lg-0 mt-lg-4 mt-2 row">
+   <div class="gy-4 gy-lg-0 mt-lg-4 mt-2 row mb-5">
     {{ drupal_view('sous_evenements', 'block_1', node.id) }}
   </div>
+  <!--
   <img src="/{{directory}}/img/fmc_cascade.047adbdb.svg" alt="Lettres FMC" width="350" class="fmc-cascade img-fluid mx-auto"> 
+  -->
+  <img src="/{{directory}}/img/contrechamp_design_under_footer.svg" alt="Lettres FMC" width="350" class="fmc-cascade img-fluid mx-auto"> 
 {% else %}
   {# EVENEMENT SIMPLE #}
   {% set provenance = soustitre_2 %}

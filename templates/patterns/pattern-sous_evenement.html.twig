@@ -9,23 +9,23 @@
 <div class="contrechamp-round">
 {{content_image}}
 </div>
-<div class="text-center">
+<div class="text-center pt-2">
   <div class="{{title_classes}}" title="{{raw_title|upper}}">{{raw_title|upper}}</div>
   <div class="bold-font concert-artist-subtitle fs-5"> {{soustitre_1|render|striptags|upper}}</div>
-  <div class="fs-4 text-primary"> {{provenance|render|striptags}} </div>
-  <div class="my-4 d-flex justify-content-center"> 
+  <div class="fs-4 concert-card-artist-location bold-font"> {{provenance|render|striptags}} </div>
+  <div class="my-3 d-flex justify-content-center"> 
     {% include "@contrechamp/includes/artistlinks.html.twig"%} 
   </div>
 </div>
 <div class="text-ivory text-justify">
   {{texte_1}}
 </div>
-<div class="contrechamp-round pt-2">
+<div class="contrechamp-round pt-3">
 {{content_image_2}}
 </div>
 {% if texte_artiste|render|raw|striptags|trim is not empty %}
-  <div class="bold-font concert-artist-subtitle fs-5 text-center pt-2"> {{titre_texte_2|render|striptags|upper}}, BIO</div>
-  <div class="text-ivory text-justify mt-3">
+  <div class="artist-bio-title fs-5 text-center pt-2"> {{titre_texte_2|render|striptags|upper}}, BIO</div>
+  <div class="text-ivory text-justify mt-1">
     {{texte_artiste}}
   </div>
 {% endif %}
