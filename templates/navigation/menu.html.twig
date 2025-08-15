@@ -31,9 +31,9 @@
   {% if items %}
 
     {% if menu_level == 0 %}
-      <ul{{ attributes.addClass(['navbar-nav mt-1 mt-lg-0 mx-auto']) }}>
-          <a href="/contrechamp" class="order-0 text-start"> 
-        <img class="navbar-brand" src="/themes/contrechamp/img/Contrechamp_Pictogramme_Topper.svg" width="50" alt="Logo Contrechamp"> 
+      <ul{{ attributes.addClass(['navbar-nav mt-1 mt-lg-0 mx-auto ']) }}>
+          <a href="/contrechamp" class="order-0 text-start  d-none d-lg-inline"> 
+        <img class="navbar-brand " src="/themes/contrechamp/img/Contrechamp_Pictogramme_Topper.svg" width="50" alt="Logo Contrechamp"> 
       </a>
     {% else %}
       <ul>
@@ -54,6 +54,16 @@
         {% endif %}
       </li>
     {% endfor %}
+    <li class='m-auto'>
+          <a href="#" class="nav-link"> 
+        <img class="" src="/themes/contrechamp/img/icons8-facebook-100_beige.svg" width="35" alt="Facebook"> 
+      </a>
+      </li>
+          <li class='m-auto'>
+          <a href="#" class="nav-link"> 
+        <img class="" src="/themes/contrechamp/img/icons8-instagram-100_beige.svg" width="35" alt="Instagram"> 
+      </a>
+      </li>
     </ul>
   {% endif %}
 {% endmacro %}

@@ -64,6 +64,7 @@
         <div class="collapse navbar-collapse order-3 order-lg-1" id="navbarSupportedContent">
           {{ page.nav_main }}
           {{ page.nav_additional }}
+
         </div>
       {% endif %}
     </div>
@@ -76,25 +77,27 @@
   {{ page.content }}
   {{ page.content_footer }}
 </main>
+{% set attributes_footer = create_attribute ()%}
 
+{% set current = path('<current>') %}
 
-<footer class="bg-blue py-4">
+<footer {{attributes_footer.addClass("bg-blue py-4").addClass('/contrechamp-2025/' in current ? 'footer_pages_evenements' : '')}}>
    <div class="container">
       <div class="align-items-center gx-4 gy-3 gy-lg-0 justify-content-center row">
-         <div class="col-lg-2 col-6 mb-5">
+         <div class="col-lg-2 col-6">
             <div class="mx-auto w-100"> <img src="/{{directory}}/img/contrechamp_ententedev_footer.svg" alt="Logo Conseil des arts du Canada" class="img-fluid"> </div>
          </div>
-         <div class="col-lg-2 col-6 mb-5">
+         <div class="col-lg-2 col-6">
             <div class="mx-auto w-100"> <img src="/{{directory}}/img/contrechamp_regard_footer.svg" alt="Logo Conseil des arts et des lettres du Québec" class="img-fluid"> </div>
          </div>
-         <div class="col-lg-2 col-6 mb-5">
+         <div class="col-lg-2 col-6">
             <div class="mx-auto w-75"> <img src="/{{directory}}/img/contrechamp_cem_footer.svg" alt="Logo Conseil des arts de Saguenay" class="img-fluid"> </div>
          </div>
-         <div class="col-lg-2 col-6 mb-5">
+         <div class="col-lg-2 col-6">
             <div class="mx-auto w-75"> <img src="/{{directory}}/img/contrechamp_bureaucine_footer.svg" alt="Logo Ville Saguenay" class="img-fluid"> </div>
          </div>
-         <div class="col-lg-2 col-6 mb-5">
-          <div class="mx-auto w-50"> <img src="/{{directory}}/img/contrechamp_promosag_footer.svg" alt="Logo Canada" class="img-fluid"> </div>
+         <div class="col-lg-2 col-6">
+          <div class="mx-2 w-50"> <img src="/{{directory}}/img/contrechamp_promosag_footer.svg" alt="Logo Canada" class="img-fluid"> </div>
           </div>
       </div>
    </div>
