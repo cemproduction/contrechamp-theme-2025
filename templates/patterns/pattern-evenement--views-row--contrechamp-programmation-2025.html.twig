@@ -1,23 +1,12 @@
 {# CHAQUE ÉVÉNEMENT DANS LA PROGRAMMATION #}
 
-{% set date = date|render|striptags|trim %}
+{% set date = date|render|striptags|trim|date('U') %}
+{% set mois = date|format_date('custom', 'F')|upper %}
 {% set mention = titre_texte_2 %}
-{% set dateNo = date|date('j') %}
-{% set mois = date|date('F')|t|upper %}
-{% if mois == "SEPTEMBER" %}
-  {% set mois = "SEPTEMBRE" %}
-{% endif %}
-{% set day = date|date('l')|t|upper %}
-{% set hour = date|date("H:i") %}
+{% set dateNo = date|format_date('custom', 'j') %}
+{% set day = date|format_date('custom', 'l')|upper %}
+{% set hour = date|date("H:i")|replace({':':'H'}) %}
 {% set sousevenements = texte_3|render|striptags|trim is not empty %}
-{% set multidate = date_fin|render|striptags|trim is not empty %}
-{% if multidate %}
-  {% set end_date = date_fin|render|striptags|trim %}
-  {% set end_date_dateNo = end_date|date('j') %}
-  {% set end_date_mois = end_date|date('F')|t|upper %}
-  {% set end_date_day = end_date|date('l')|t %}
-  {% set end_date_hour = end_date|date("H:i")|replace({':':'H'}) %}
-{% endif %}
 
 
 {% if sousevenements %}

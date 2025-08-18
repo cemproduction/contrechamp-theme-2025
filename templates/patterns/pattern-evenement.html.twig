@@ -1,24 +1,14 @@
 {# PAGE DE L'ÉVÉNEMENT #}
 
 {% autoescape false %}
-{% set date = date|render|striptags|trim %}
+{# set moist = date|render|format_date('custom', 'F')|upper #}
+{% set date = date|render|striptags|trim|date('U') %}
+{% set mois = date|format_date('custom', 'F')|upper %}
 {% set mention = titre_texte_2 %}
-{% set dateNo = date|date('j') %}
-{% set mois = date|date('F')|t|upper %}
-{% if mois == "SEPTEMBER" %}
-  {% set mois = "SEPTEMBRE" %}
-{% endif %}
-{% set day = date|date('l')|t|upper %}
+{% set dateNo = date|format_date('custom', 'j') %}
+{% set day = date|format_date('custom', 'l')|upper %}
 {% set hour = date|date("H:i")|replace({':':'H'}) %}
 {% set sousevenements = texte_3|render|striptags|trim is not empty %}
-{% set multidate = date_fin|render|striptags|trim is not empty %}
-{% if multidate %}
-  {% set end_date = date_fin|render|striptags|trim %}
-  {% set end_date_dateNo = end_date|date('j') %}
-  {% set end_date_mois = end_date|date('F')|t|upper %}
-  {% set end_date_day = end_date|date('l')|t %}
-  {% set end_date_hour = end_date|date("H:i")|replace({':':'H'}) %}
-{% endif %}
 
 
 
@@ -56,11 +46,7 @@
     <div class="col-12 col-lg-12 order-lg-1 pt-3">  
       <div class="text-center">
           {% set btn_class = "btn btn-primary align-items-center" %} 
-          {% if not multidate %}
             <a href="https://my.weezevent.com/festival-des-musiques-de-creation-2024" target="_blank" class="{{btn_class}}"><span class="align-middle">BILLETTERIE</span></a> 
-          {% elseif multidate %}
-            <a href="#" target="_blank" class="{{btn_class}}">ÉVÉNEMENT GRATUIT!</a> 
-          {% endif %}
           
           </div>
       </div>
@@ -86,9 +72,7 @@
       <div class="align-items-center gy-3 justify-content-center mb-3 mt-2 row">
          <div class="col-6 col-lg-4 order-lg-0">
             <h3 class="concert-venue">{{place|render|striptags|replace({'&#039;':"'"})|upper}}</h3>
-            {% if not multidate %}
             <h4 class="concert-time">{{hour}}</h4>
-            {% endif %}
          </div>
          <div class="col-6 col-lg-2 d-flex justify-content-end order-lg-2 offset-lg-2">
           {% if (mention|render is not empty) %}
@@ -108,11 +92,7 @@
           
             <div class="text-center">
               {% set btn_class = "btn btn-primary align-items-center" %} 
-              {% if not multidate %}
                 <a href="https://my.weezevent.com/festival-des-musiques-de-creation-2024" target="_blank" class="{{btn_class}}">BILLETTERIE</a> 
-              {% elseif multidate %}
-                <a href="#" target="_blank" class="{{btn_class}}">ÉVÉNEMENT GRATUIT!</a> 
-              {% endif %}
               
               </div>
          </div>
