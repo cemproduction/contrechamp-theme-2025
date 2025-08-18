@@ -4,6 +4,9 @@
 {% set mention = titre_texte_2 %}
 {% set dateNo = date|date('j') %}
 {% set mois = date|date('F')|t|upper %}
+{% if mois == "SEPTEMBER" %}
+  {% set mois = "SEPTEMBRE" %}
+{% endif %}
 {% set day = date|date('l')|t|upper %}
 {% set hour = date|date("H:i") %}
 {% set sousevenements = texte_3|render|striptags|trim is not empty %}
