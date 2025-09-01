@@ -10,7 +10,7 @@
 {{content_image}}
 </div>
 <div class="text-center pt-2">
-  <div class="{{title_classes}}" title="{{raw_title|upper}}">{{raw_title|upper}}</div>
+  <div class="{{title_classes}}" title="{{raw_title|upper}}">{{raw_title|replace({'/': '/&#8203;'})|upper}}</div>
   <div class="bold-font concert-artist-subtitle fs-5"> {{soustitre_1|render|striptags|upper}}</div>
   <div class="fs-4 concert-card-artist-location bold-font"> {{provenance|render|striptags}} </div>
   <div class="my-3 d-flex justify-content-center"> 
