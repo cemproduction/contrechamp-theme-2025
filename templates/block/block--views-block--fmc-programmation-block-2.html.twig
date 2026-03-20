@@ -1,5 +1,6 @@
+{% set theme_path = (directory is defined and directory) ? directory : active_theme_path() %}
 <div class="text-center"> 
-  <img src="/{{directory}}/dist/img/fmc_bird.eebf1d21.svg" alt="Oiseau FMC" width="400" class="fmc-bird ms-sm-5 mw-100 mx-2"> 
+  <img src="/{{ theme_path }}/dist/img/fmc_bird.eebf1d21.svg" alt="Oiseau FMC" width="400" class="fmc-bird ms-sm-5 mw-100 mx-2"> 
 </div>
 <hr>
 <div class="container">

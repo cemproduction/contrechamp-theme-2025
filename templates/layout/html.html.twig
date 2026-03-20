@@ -34,6 +34,7 @@
     'd-flex flex-column h-100'
   ]
 %}
+{% set theme_path = (directory is defined and directory) ? directory : active_theme_path() %}
 
 <!DOCTYPE html>
 <html{{ html_attributes.addClass('h-100') }}>
@@ -42,10 +43,10 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="/{{directory}}/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/{{directory}}/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/{{directory}}/favicon-16x16.png">
-    <link rel="manifest" href="/{{directory}}/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/{{ theme_path }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/{{ theme_path }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/{{ theme_path }}/favicon-16x16.png">
+    <link rel="manifest" href="/{{ theme_path }}/site.webmanifest">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     {#

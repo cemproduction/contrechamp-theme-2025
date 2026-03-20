@@ -1,4 +1,5 @@
 {% set googlemaps_link = googlemaps_link|render|striptags|trim %}
+{% set theme_path = (directory is defined and directory) ? directory : active_theme_path() %}
 <div class="col-12 col-sm-9 text-center text-sm-start"> 
     <div class="bold-font big-text fix-baseline mb-1">{{place|render|striptags|upper|replace({"Ô":"O", "&#039;": "'"})}}</div>
     {% if googlemaps_link is not empty %}     
@@ -8,5 +9,5 @@
     {% endif %}
 </div> 
 <div class="col-sm-3 d-none d-sm-block"> 
-    <img src="/{{directory}}/img/gradient_arrows_colored.fd67d8e1.svg" alt="Flèches" class="fa-rotate-180 mw-100"> 
+    <img src="/{{ theme_path }}/img/gradient_arrows_colored.fd67d8e1.svg" alt="Flèches" class="fa-rotate-180 mw-100"> 
 </div>

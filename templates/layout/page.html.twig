@@ -42,13 +42,14 @@
  * @see html.html.twig
  */
 #}
+{% set theme_path = (directory is defined and directory) ? directory : active_theme_path() %}
 <header role="banner" class="high-tide-bold bg-body-secondary px-3">
   {% if page.nav_branding or page.nav_main or page.nav_additional %}
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       {{ page.nav_branding }}
       <a href="/contrechamp" class="order-0 text-start d-lg-none"> 
-        <img class="navbar-brand" src="/{{directory}}/img/Contrechamp_Pictogramme_Topper.svg" width="50" alt="Logo Contrechamp"> 
+        <img class="navbar-brand" src="/{{ theme_path }}/img/Contrechamp_Pictogramme_Topper.svg" width="50" alt="Logo Contrechamp"> 
       </a>
       {% if page.nav_main or page.nav_additional %}
         <button class="navbar-toggler collapsed order-1" type="button" data-bs-toggle="collapse"
@@ -58,7 +59,7 @@
         </button>
         <!--
         <a href="https://cem.studio" target="_self" class="order-2 logo-cem d-none d-md-block">
-          <img src="/{{directory}}/img/cem_icone.svg" width="50" alt="Logo CEM">
+          <img src="/{{ theme_path }}/img/cem_icone.svg" width="50" alt="Logo CEM">
         </a>
          -->
         <div class="collapse navbar-collapse order-3 order-lg-1" id="navbarSupportedContent">
@@ -85,19 +86,19 @@
    <div class="container">
       <div class="align-items-center gx-4 gy-3 gy-lg-0 justify-content-center row">
          <div class="col-lg-2 col-6">
-            <div class="mx-auto w-100"> <img src="/{{directory}}/img/contrechamp_ententedev_footer.svg" alt="Logo Conseil des arts du Canada" class="img-fluid"> </div>
+            <div class="mx-auto w-100"> <img src="/{{ theme_path }}/img/contrechamp_ententedev_footer.svg" alt="Logo Conseil des arts du Canada" class="img-fluid"> </div>
          </div>
          <div class="col-lg-2 col-6">
-            <div class="mx-auto w-100"> <img src="/{{directory}}/img/contrechamp_regard_footer.svg" alt="Logo Conseil des arts et des lettres du Québec" class="img-fluid"> </div>
+            <div class="mx-auto w-100"> <img src="/{{ theme_path }}/img/contrechamp_regard_footer.svg" alt="Logo Conseil des arts et des lettres du Québec" class="img-fluid"> </div>
          </div>
          <div class="col-lg-2 col-6">
-            <div class="mx-auto w-75"> <img src="/{{directory}}/img/contrechamp_cem_footer.svg" alt="Logo Conseil des arts de Saguenay" class="img-fluid"> </div>
+            <div class="mx-auto w-75"> <img src="/{{ theme_path }}/img/contrechamp_cem_footer.svg" alt="Logo Conseil des arts de Saguenay" class="img-fluid"> </div>
          </div>
          <div class="col-lg-2 col-6">
-            <div class="mx-auto w-75"> <img src="/{{directory}}/img/contrechamp_bureaucine_footer.svg" alt="Logo Ville Saguenay" class="img-fluid"> </div>
+            <div class="mx-auto w-75"> <img src="/{{ theme_path }}/img/contrechamp_bureaucine_footer.svg" alt="Logo Ville Saguenay" class="img-fluid"> </div>
          </div>
          <div class="col-lg-2 col-6">
-          <div class="mx-2 w-50"> <img src="/{{directory}}/img/contrechamp_promosag_footer.svg" alt="Logo Canada" class="img-fluid"> </div>
+          <div class="mx-2 w-50"> <img src="/{{ theme_path }}/img/contrechamp_promosag_footer.svg" alt="Logo Canada" class="img-fluid"> </div>
           </div>
       </div>
    </div>
