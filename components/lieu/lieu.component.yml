@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/11.x/core/assets/schemas/v1/metadata.schema.json
+name: Lieu
+description: Venue component
+status: stable
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Variant
+      enum: [default]
+      default: default
+slots:
+  place: { title: Nom du lieu }
+  address: { title: Adresse }
+  googlemaps_link: { title: Lien Google Maps }

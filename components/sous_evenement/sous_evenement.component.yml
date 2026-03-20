@@ -1,0 +1,33 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/11.x/core/assets/schemas/v1/metadata.schema.json
+name: Sous-evenement
+description: Sub-event component
+status: stable
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Variant
+      enum: [default, fmcprog]
+      default: default
+slots:
+  titre: { title: Titre }
+  soustitre_1: { title: Sous-titre 1 }
+  soustitre_2: { title: Sous-titre 2 }
+  texte_1: { title: Texte 1 }
+  titre_texte_2: { title: Titre texte 2 }
+  texte_2: { title: Texte 2 }
+  titre_texte_3: { title: Titre texte 3 }
+  texte_3: { title: Texte 3 }
+  texte_artiste: { title: Texte artiste }
+  content_image: { title: Content image }
+  content_image_2: { title: Content image 2 }
+  event_id: { title: Event ID }
+  facebook_event_link: { title: Facebook event link }
+  youtube_link: { title: YouTube link }
+  soundcloud_link: { title: Soundcloud link }
+  spotify_link: { title: Spotify link }
+  bandcamp_link: { title: Bandcamp link }
+  vimeo_link: { title: Vimeo link }
+  facebook_link: { title: Facebook link }
+  site_link: { title: Site link }

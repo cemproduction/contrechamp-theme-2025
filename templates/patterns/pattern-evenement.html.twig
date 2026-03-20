@@ -9,6 +9,7 @@
 {% set day = date|format_date('custom', 'l')|upper %}
 {% set hour = date|date("H:i")|replace({':':'H'}) %}
 {% set sousevenements = texte_3|render|striptags|trim is not empty %}
+{% set theme_img_base = '/' ~ active_theme_path() ~ '/img' %}
 
 
 
@@ -56,7 +57,7 @@
   <!--
   <img src="/{{directory}}/img/fmc_cascade.047adbdb.svg" alt="Lettres FMC" width="350" class="fmc-cascade img-fluid mx-auto"> 
   -->
-  <img src="/{{directory}}/img/contrechamp_design_under_footer.svg" alt="Lettres FMC" width="300" class="fmc-cascade img-fluid mx-auto"> 
+  <img src="{{ theme_img_base }}/contrechamp_design_under_footer.svg" alt="Lettres FMC" width="300" class="fmc-cascade img-fluid mx-auto"> 
 {% else %}
   {# EVENEMENT SIMPLE #}
   {% set provenance = soustitre_2 %}
@@ -113,7 +114,7 @@
       <div class="text-ivory text-justify">
         {{texte_1}}
       </div>
-      <img src="/{{directory}}/img/fmc_cascade.047adbdb.svg" alt="Lettres FMC" width="550" class="fmc-cascade img-fluid mx-auto">
+      <img src="{{ theme_img_base }}/fmc_cascade.047adbdb.svg" alt="Lettres FMC" width="550" class="fmc-cascade img-fluid mx-auto">
 {% endif %}
 </div>
 {% endautoescape %}

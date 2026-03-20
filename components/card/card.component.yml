@@ -1,0 +1,18 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/11.x/core/assets/schemas/v1/metadata.schema.json
+name: Card
+description: Team card component
+status: stable
+props:
+  type: object
+  properties:
+    variant:
+      type: string
+      title: Variant
+      enum: [default]
+      default: default
+slots:
+  cardbody: { title: Card body }
+  title: { title: Title }
+  subtitle_1: { title: Subtitle 1 }
+  subtitle_2: { title: Subtitle 2 }
+  nodelink: { title: Link }
