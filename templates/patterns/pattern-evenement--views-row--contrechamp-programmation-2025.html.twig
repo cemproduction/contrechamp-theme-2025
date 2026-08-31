@@ -5,6 +5,7 @@
 {% set mention = titre_texte_2 %}
 {% set dateNo = date|format_date('custom', 'j') %}
 {% set day = date|format_date('custom', 'l')|upper %}
+{% set annee = date|format_date('custom', 'Y') %}
 {% set hour = date|date("H:i")|replace({':':'H'}) %}
 {% set sousevenements = texte_3|render|striptags|trim is not empty %}
 
@@ -32,7 +33,7 @@
 
 <div {{ attributes.addClass( date_col_classes) }}> 
   <div>
-    <h2 class="concert-date text-center">{{day}} {{dateNo}}&nbsp;{{mois}}</h2> 
+    <h2 class="concert-date text-center">{{day}} {{dateNo}}&nbsp;{{mois}}<br>{{annee}}</h2> 
     <div class="text-center">
       <a class="btn btn-primary my-3 stretched-link align-items-center" href="{{eventurl|raw|render|striptags|trim}}"><span class="align-middle">INFORMATIONS</span></a> 
     </div>
